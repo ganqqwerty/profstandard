@@ -24,12 +24,16 @@
 							<xs:element name="organization" maxOccurs="unbounded">
 								<xs:complexType>
 									<xs:sequence>
-										<xs:element name="organization_name" type="xs:string"/>
-										<xs:element name="organization_website" type="xs:string"/>
+										<xs:element name="name" type="xs:string"/>
+										<xs:element name="website" type="xs:string"/>
 									</xs:sequence>
 								</xs:complexType>
 							</xs:element>
-							<xs:element name="ved_code" type="xs:integer" maxOccurs="unbounded"/>
+							<xs:element name="ved_code" type="xs:integer" maxOccurs="unbounded">
+								<xs:annotation>
+									<xs:documentation>Код ВЭД</xs:documentation>
+								</xs:annotation>
+							</xs:element>
 							<xs:element name="developers">
 								<xs:complexType>
 									<xs:sequence>
@@ -61,10 +65,16 @@
 							<xs:element name="level_description" maxOccurs="8">
 								<xs:complexType>
 									<xs:sequence>
-										<xs:element name="level_names">
+										<xs:element name="level_numbers">
+											<xs:annotation>
+												<xs:documentation>Номер уровня в соответствии с классификаторами</xs:documentation>
+											</xs:annotation>
 											<xs:complexType>
 												<xs:sequence>
 													<xs:element name="level_ORK">
+														<xs:annotation>
+															<xs:documentation>Уровень по Общей рамке классификации</xs:documentation>
+														</xs:annotation>
 														<xs:simpleType>
 															<xs:restriction base="xs:int">
 																<xs:minInclusive value="1"/>
@@ -73,6 +83,9 @@
 														</xs:simpleType>
 													</xs:element>
 													<xs:element name="level_NRK">
+														<xs:annotation>
+															<xs:documentation>Уровень по Национальной рамке классификации</xs:documentation>
+														</xs:annotation>
 														<xs:simpleType>
 															<xs:restriction base="xs:int">
 																<xs:minInclusive value="1"/>
@@ -84,12 +97,17 @@
 											</xs:complexType>
 										</xs:element>
 										<xs:element name="goal" type="xs:string"/>
-										<xs:element name="activity_name" type="xs:string">
+										<xs:element name="name" type="xs:string">
 											<xs:annotation>
 												<xs:documentation>Название вида трудовой деятельности</xs:documentation>
 											</xs:annotation>
 										</xs:element>
 										<xs:element name="job_title" type="xs:string" maxOccurs="unbounded"/>
+										<xs:element name="code" type="xs:int">
+											<xs:annotation>
+												<xs:documentation>Код уровня, например 7</xs:documentation>
+											</xs:annotation>
+										</xs:element>
 										<xs:element name="additional_info">
 											<xs:complexType>
 												<xs:sequence>
@@ -147,11 +165,24 @@
 													<xs:element name="code" type="xs:string">
 														<xs:annotation>
 															<xs:documentation>например А, B, C</xs:documentation>
+															<xs:appinfo>
+																<altova:exampleValues>
+																	<altova:example value="D"/>
+																	<altova:example value="C"/>
+																	<altova:example value="B"/>
+																	<altova:example value="A"/>
+																</altova:exampleValues>
+															</xs:appinfo>
 														</xs:annotation>
 													</xs:element>
 													<xs:element name="name" type="xs:string">
 														<xs:annotation>
-															<xs:documentation>имя как для 8A</xs:documentation>
+															<xs:documentation>имя как для 8A, например "Отстаивать долгосрочные интересы акционеров (учредителей)."</xs:documentation>
+															<xs:appinfo>
+																<altova:exampleValues>
+																	<altova:example value="Отстаивать долгосрочные интересы акционеров (учредителей)."/>
+																</altova:exampleValues>
+															</xs:appinfo>
 														</xs:annotation>
 													</xs:element>
 													<xs:element name="standard_unit" maxOccurs="unbounded">
@@ -160,12 +191,12 @@
 														</xs:annotation>
 														<xs:complexType>
 															<xs:sequence>
-																<xs:element name="code">
+																<xs:element name="code" type="xs:string">
 																	<xs:annotation>
-																		<xs:documentation>код единицы. Например 8А5</xs:documentation>
+																		<xs:documentation>код подкатегории единицы. Например для 8А5 это будет 5</xs:documentation>
 																	</xs:annotation>
 																</xs:element>
-																<xs:element name="name"/>
+																<xs:element name="name" type="xs:string"/>
 																<xs:element name="knowledge_unit" maxOccurs="unbounded">
 																	<xs:annotation>
 																		<xs:documentation>Текст знания, умения, действия или качества</xs:documentation>
@@ -179,6 +210,8 @@
 																					</xs:annotation>
 																					<xs:simpleType>
 																						<xs:restriction base="xs:string">
+																							<xs:enumeration value="качество"/>
+																							<xs:enumeration value="действие"/>
 																							<xs:enumeration value="знание"/>
 																							<xs:enumeration value="умение"/>
 																						</xs:restriction>
@@ -187,11 +220,6 @@
 																			</xs:extension>
 																		</xs:simpleContent>
 																	</xs:complexType>
-																</xs:element>
-																<xs:element name="group_code">
-																	<xs:annotation>
-																		<xs:documentation>код подкатегории, например для функции 8A5 здесь будет 5</xs:documentation>
-																	</xs:annotation>
 																</xs:element>
 															</xs:sequence>
 														</xs:complexType>
@@ -218,8 +246,8 @@
 										<xs:element name="term" maxOccurs="unbounded">
 											<xs:complexType>
 												<xs:sequence>
-													<xs:element name="term_name" type="xs:string"/>
-													<xs:element name="term_definition" type="xs:string"/>
+													<xs:element name="name" type="xs:string"/>
+													<xs:element name="definition" type="xs:string"/>
 												</xs:sequence>
 											</xs:complexType>
 										</xs:element>
@@ -232,8 +260,8 @@
 										<xs:element name="abbreviation" maxOccurs="unbounded">
 											<xs:complexType>
 												<xs:sequence>
-													<xs:element name="abbr_name" type="xs:string"/>
-													<xs:element name="abbr_definition" type="xs:string"/>
+													<xs:element name="name" type="xs:string"/>
+													<xs:element name="definition" type="xs:string"/>
 												</xs:sequence>
 											</xs:complexType>
 										</xs:element>
