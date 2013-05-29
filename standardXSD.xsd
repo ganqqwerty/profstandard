@@ -7,13 +7,31 @@
 		</xs:annotation>
 		<xs:complexType>
 			<xs:sequence>
-				<xs:element name="Title"/>
+				<xs:element name="Title">
+					<xs:annotation>
+						<xs:documentation>Заголовок стандарта</xs:documentation>
+					</xs:annotation>
+				</xs:element>
 				<xs:element name="Metadata">
+					<xs:annotation>
+						<xs:documentation>Раздел общих метаданных для стандарта</xs:documentation>
+					</xs:annotation>
 					<xs:complexType>
 						<xs:sequence>
-							<xs:element name="creation_date" type="xs:date"/>
-							<xs:element name="subject"/>
+							<xs:element name="creation_date" type="xs:date">
+								<xs:annotation>
+									<xs:documentation>Дата создания</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="ved">
+								<xs:annotation>
+									<xs:documentation>Наименование вида экономической деятельности, например "Управление органищацией"</xs:documentation>
+								</xs:annotation>
+							</xs:element>
 							<xs:element name="level" maxOccurs="8">
+								<xs:annotation>
+									<xs:documentation>Уровни, описываемые документом профстандарта</xs:documentation>
+								</xs:annotation>
 								<xs:simpleType>
 									<xs:restriction base="xs:int">
 										<xs:minInclusive value="1"/>
@@ -22,10 +40,21 @@
 								</xs:simpleType>
 							</xs:element>
 							<xs:element name="organization" maxOccurs="unbounded">
+								<xs:annotation>
+									<xs:documentation>Информация о титульной организации. Обычно эта информация отображается в колонтитулах</xs:documentation>
+								</xs:annotation>
 								<xs:complexType>
 									<xs:sequence>
-										<xs:element name="name" type="xs:string"/>
-										<xs:element name="website" type="xs:string"/>
+										<xs:element name="name" type="xs:string">
+											<xs:annotation>
+												<xs:documentation>Полное название организации</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+										<xs:element name="website" type="xs:string">
+											<xs:annotation>
+												<xs:documentation>Веб-сайт организации</xs:documentation>
+											</xs:annotation>
+										</xs:element>
 									</xs:sequence>
 								</xs:complexType>
 							</xs:element>
@@ -35,21 +64,46 @@
 								</xs:annotation>
 							</xs:element>
 							<xs:element name="developers">
+								<xs:annotation>
+									<xs:documentation>Информация о разработчиках профстандарта</xs:documentation>
+								</xs:annotation>
 								<xs:complexType>
 									<xs:sequence>
 										<xs:element name="main_developer" maxOccurs="unbounded">
+											<xs:annotation>
+												<xs:documentation>Информация об основных разработчиках профстандарта</xs:documentation>
+											</xs:annotation>
 											<xs:complexType>
 												<xs:sequence>
-													<xs:element name="name" type="xs:string"/>
-													<xs:element name="organization" type="xs:string"/>
+													<xs:element name="name" type="xs:string">
+														<xs:annotation>
+															<xs:documentation>Имя руководителя организации</xs:documentation>
+														</xs:annotation>
+													</xs:element>
+													<xs:element name="organization" type="xs:string">
+														<xs:annotation>
+															<xs:documentation>Название организации</xs:documentation>
+														</xs:annotation>
+													</xs:element>
 												</xs:sequence>
 											</xs:complexType>
 										</xs:element>
 										<xs:element name="secondary_developer" maxOccurs="unbounded">
+											<xs:annotation>
+												<xs:documentation>Информация о других организациях, принявших участие в разработке профстандарта</xs:documentation>
+											</xs:annotation>
 											<xs:complexType>
 												<xs:sequence>
-													<xs:element name="organization" type="xs:string"/>
-													<xs:element name="region" type="xs:string"/>
+													<xs:element name="organization" type="xs:string">
+														<xs:annotation>
+															<xs:documentation>Название организации</xs:documentation>
+														</xs:annotation>
+													</xs:element>
+													<xs:element name="city" type="xs:string">
+														<xs:annotation>
+															<xs:documentation>Название города</xs:documentation>
+														</xs:annotation>
+													</xs:element>
 												</xs:sequence>
 											</xs:complexType>
 										</xs:element>
@@ -59,67 +113,85 @@
 						</xs:sequence>
 					</xs:complexType>
 				</xs:element>
-				<xs:element name="Passport">
+				<xs:element name="Body">
+					<xs:annotation>
+						<xs:documentation>Тело стандарта. Содержит описания всех трудовых функций, группированных по категориям и уровням квалификации</xs:documentation>
+					</xs:annotation>
 					<xs:complexType>
 						<xs:sequence>
 							<xs:element name="level_description" maxOccurs="8">
+								<xs:annotation>
+									<xs:documentation>Описание уровня квалификации. Об уровнях можно прочитать в Национальной рамке квалификации (ОРК) и Отраслевой рамке квалификаций (НРК)</xs:documentation>
+								</xs:annotation>
 								<xs:complexType>
 									<xs:sequence>
 										<xs:element name="level_numbers">
 											<xs:annotation>
-												<xs:documentation>Номер уровня в соответствии с классификаторами</xs:documentation>
+												<xs:documentation>Номер уровня квалификации в соответствии с классификаторами</xs:documentation>
 											</xs:annotation>
 											<xs:complexType>
 												<xs:sequence>
-													<xs:element name="level_ORK">
+													<xs:element name="level_ORK" type="xs:string">
 														<xs:annotation>
 															<xs:documentation>Уровень по Общей рамке классификации</xs:documentation>
 														</xs:annotation>
-														<xs:simpleType>
-															<xs:restriction base="xs:int">
-																<xs:minInclusive value="1"/>
-																<xs:maxInclusive value="8"/>
-															</xs:restriction>
-														</xs:simpleType>
 													</xs:element>
-													<xs:element name="level_NRK">
+													<xs:element name="level_NRK" type="xs:string">
 														<xs:annotation>
 															<xs:documentation>Уровень по Национальной рамке классификации</xs:documentation>
 														</xs:annotation>
-														<xs:simpleType>
-															<xs:restriction base="xs:int">
-																<xs:minInclusive value="1"/>
-																<xs:maxInclusive value="8"/>
-															</xs:restriction>
-														</xs:simpleType>
 													</xs:element>
 												</xs:sequence>
 											</xs:complexType>
 										</xs:element>
-										<xs:element name="goal" type="xs:string"/>
+										<xs:element name="goal" type="xs:string">
+											<xs:annotation>
+												<xs:documentation>Основная Цель вида экономической деятельности</xs:documentation>
+											</xs:annotation>
+										</xs:element>
 										<xs:element name="name" type="xs:string">
 											<xs:annotation>
 												<xs:documentation>Название вида трудовой деятельности</xs:documentation>
 											</xs:annotation>
 										</xs:element>
-										<xs:element name="job_title" type="xs:string" maxOccurs="unbounded"/>
-										<xs:element name="code" type="xs:int">
+										<xs:element name="job_title" type="xs:string" maxOccurs="unbounded">
+											<xs:annotation>
+												<xs:documentation>Возможные наименования должностей</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+										<xs:element name="code" type="xs:string">
 											<xs:annotation>
 												<xs:documentation>Код уровня, например 7</xs:documentation>
 											</xs:annotation>
 										</xs:element>
 										<xs:element name="additional_info">
+											<xs:annotation>
+												<xs:documentation>Дополнительная информация</xs:documentation>
+											</xs:annotation>
 											<xs:complexType>
 												<xs:sequence>
-													<xs:element name="ksd_job_title" type="xs:string" maxOccurs="unbounded"/>
-													<xs:element name="etks_code" type="xs:string" maxOccurs="unbounded"/>
-													<xs:element name="okz_codes" type="xs:int" maxOccurs="unbounded"/>
+													<xs:element name="ksd_job_title" type="xs:string" maxOccurs="unbounded">
+														<xs:annotation>
+															<xs:documentation>Должности по
+КСД, ЕКСД</xs:documentation>
+														</xs:annotation>
+													</xs:element>
+													<xs:element name="etks_code" type="xs:string" maxOccurs="unbounded">
+														<xs:annotation>
+															<xs:documentation>Наименования профессий по ЕТКС</xs:documentation>
+														</xs:annotation>
+													</xs:element>
+													<xs:element name="okz_code" type="xs:int" maxOccurs="unbounded">
+														<xs:annotation>
+															<xs:documentation>Коды занятий по ОКЗ, коды</xs:documentation>
+														</xs:annotation>
+													</xs:element>
 												</xs:sequence>
 											</xs:complexType>
 										</xs:element>
-										<xs:element name="unit_for_certificate" maxOccurs="unbounded">
+										<xs:element name="unit_for_certificate" type="xs:string" maxOccurs="unbounded">
 											<xs:annotation>
-												<xs:documentation>Единицы, нужные для получения сертификата</xs:documentation>
+												<xs:documentation>Коды единиц, нужных для получения сертификата</xs:documentation>
 											</xs:annotation>
 										</xs:element>
 										<xs:element name="level_card">
@@ -158,7 +230,7 @@
 										</xs:element>
 										<xs:element name="level_activities" maxOccurs="unbounded">
 											<xs:annotation>
-												<xs:documentation>тут хранятся все трудовые функции для уровня, сгруппированные по категориям активности.  Включает все трудовые функции</xs:documentation>
+												<xs:documentation>Здесь хранятся все трудовые функции для уровня, сгруппированные по категориям активности.  Включает все трудовые функции</xs:documentation>
 											</xs:annotation>
 											<xs:complexType>
 												<xs:sequence>
@@ -177,7 +249,7 @@
 													</xs:element>
 													<xs:element name="name" type="xs:string">
 														<xs:annotation>
-															<xs:documentation>имя как для 8A, например "Отстаивать долгосрочные интересы акционеров (учредителей)."</xs:documentation>
+															<xs:documentation>Наименование категории активности, уточненной по уровню. Например, для активности 8A, наименованием будет "Отстаивать долгосрочные интересы акционеров (учредителей)."</xs:documentation>
 															<xs:appinfo>
 																<altova:exampleValues>
 																	<altova:example value="Отстаивать долгосрочные интересы акционеров (учредителей)."/>
@@ -187,7 +259,7 @@
 													</xs:element>
 													<xs:element name="standard_unit" maxOccurs="unbounded">
 														<xs:annotation>
-															<xs:documentation>Трудовая функция</xs:documentation>
+															<xs:documentation>Трудовая функция. Состоит из кода, названия и нескольких разделов описаний</xs:documentation>
 														</xs:annotation>
 														<xs:complexType>
 															<xs:sequence>
@@ -196,7 +268,11 @@
 																		<xs:documentation>код подкатегории единицы. Например для 8А5 это будет 5</xs:documentation>
 																	</xs:annotation>
 																</xs:element>
-																<xs:element name="name" type="xs:string"/>
+																<xs:element name="name" type="xs:string">
+																	<xs:annotation>
+																		<xs:documentation>Название трудовай функции</xs:documentation>
+																	</xs:annotation>
+																</xs:element>
 																<xs:element name="knowledge_unit" maxOccurs="unbounded">
 																	<xs:annotation>
 																		<xs:documentation>Текст знания, умения, действия или качества</xs:documentation>
@@ -206,7 +282,7 @@
 																			<xs:extension base="xs:string">
 																				<xs:attribute name="type" use="required">
 																					<xs:annotation>
-																						<xs:documentation>тип. На данный момент доступны типы: знание, умение, действие, качество</xs:documentation>
+																						<xs:documentation>Тип. На данный момент доступны типы: знание, умение, действие, качество</xs:documentation>
 																					</xs:annotation>
 																					<xs:simpleType>
 																						<xs:restriction base="xs:string">
@@ -239,15 +315,33 @@
 					</xs:annotation>
 					<xs:complexType>
 						<xs:sequence>
-							<xs:element name="application_area" type="xs:string"/>
+							<xs:element name="application_area" type="xs:string">
+								<xs:annotation>
+									<xs:documentation>Область применения стандарта</xs:documentation>
+								</xs:annotation>
+							</xs:element>
 							<xs:element name="glossary">
+								<xs:annotation>
+									<xs:documentation>Словарь терминов, использованных в стандарте</xs:documentation>
+								</xs:annotation>
 								<xs:complexType>
 									<xs:sequence>
 										<xs:element name="term" maxOccurs="unbounded">
+											<xs:annotation>
+												<xs:documentation>Термин</xs:documentation>
+											</xs:annotation>
 											<xs:complexType>
 												<xs:sequence>
-													<xs:element name="name" type="xs:string"/>
-													<xs:element name="definition" type="xs:string"/>
+													<xs:element name="name" type="xs:string">
+														<xs:annotation>
+															<xs:documentation>Наименование термина</xs:documentation>
+														</xs:annotation>
+													</xs:element>
+													<xs:element name="definition" type="xs:string">
+														<xs:annotation>
+															<xs:documentation>Определение термина</xs:documentation>
+														</xs:annotation>
+													</xs:element>
 												</xs:sequence>
 											</xs:complexType>
 										</xs:element>
@@ -255,13 +349,27 @@
 								</xs:complexType>
 							</xs:element>
 							<xs:element name="abbreviations">
+								<xs:annotation>
+									<xs:documentation>Сокращения, использованные в стандарте</xs:documentation>
+								</xs:annotation>
 								<xs:complexType>
 									<xs:sequence>
 										<xs:element name="abbreviation" maxOccurs="unbounded">
+											<xs:annotation>
+												<xs:documentation>Сокращение</xs:documentation>
+											</xs:annotation>
 											<xs:complexType>
 												<xs:sequence>
-													<xs:element name="name" type="xs:string"/>
-													<xs:element name="definition" type="xs:string"/>
+													<xs:element name="name" type="xs:string">
+														<xs:annotation>
+															<xs:documentation>Наименование сокращения</xs:documentation>
+														</xs:annotation>
+													</xs:element>
+													<xs:element name="definition" type="xs:string">
+														<xs:annotation>
+															<xs:documentation>Расшифровка сокращения</xs:documentation>
+														</xs:annotation>
+													</xs:element>
 												</xs:sequence>
 											</xs:complexType>
 										</xs:element>
