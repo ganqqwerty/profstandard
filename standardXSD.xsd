@@ -23,21 +23,15 @@
 									<xs:documentation>Дата создания</xs:documentation>
 								</xs:annotation>
 							</xs:element>
-							<xs:element name="ved">
+							<xs:element name="ved" type="xs:string">
 								<xs:annotation>
 									<xs:documentation>Наименование вида экономической деятельности, например "Управление органищацией"</xs:documentation>
 								</xs:annotation>
 							</xs:element>
-							<xs:element name="level" maxOccurs="8">
+							<xs:element name="level" type="xs:int" maxOccurs="8">
 								<xs:annotation>
 									<xs:documentation>Уровни, описываемые документом профстандарта</xs:documentation>
 								</xs:annotation>
-								<xs:simpleType>
-									<xs:restriction base="xs:int">
-										<xs:minInclusive value="1"/>
-										<xs:maxInclusive value="8"/>
-									</xs:restriction>
-								</xs:simpleType>
 							</xs:element>
 							<xs:element name="organization" maxOccurs="unbounded">
 								<xs:annotation>
@@ -273,29 +267,10 @@
 																		<xs:documentation>Название трудовай функции</xs:documentation>
 																	</xs:annotation>
 																</xs:element>
-																<xs:element name="knowledge_unit" maxOccurs="unbounded">
+																<xs:element name="knowledge_unit" type="xs:string" maxOccurs="unbounded">
 																	<xs:annotation>
 																		<xs:documentation>Текст знания, умения, действия или качества</xs:documentation>
 																	</xs:annotation>
-																	<xs:complexType>
-																		<xs:simpleContent>
-																			<xs:extension base="xs:string">
-																				<xs:attribute name="type" use="required">
-																					<xs:annotation>
-																						<xs:documentation>Тип. На данный момент доступны типы: знание, умение, действие, качество</xs:documentation>
-																					</xs:annotation>
-																					<xs:simpleType>
-																						<xs:restriction base="xs:string">
-																							<xs:enumeration value="качество"/>
-																							<xs:enumeration value="действие"/>
-																							<xs:enumeration value="знание"/>
-																							<xs:enumeration value="умение"/>
-																						</xs:restriction>
-																					</xs:simpleType>
-																				</xs:attribute>
-																			</xs:extension>
-																		</xs:simpleContent>
-																	</xs:complexType>
 																</xs:element>
 															</xs:sequence>
 														</xs:complexType>
