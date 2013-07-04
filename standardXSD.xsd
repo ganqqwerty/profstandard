@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSpy v2013 (http://www.altova.com) by  () -->
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:altova="http://www.altova.com/xml-schema-extensions" elementFormDefault="qualified" attributeFormDefault="unqualified">
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:altova="http://www.altova.com/xml-schema-extensions" elementFormDefault="qualified"
+	attributeFormDefault="unqualified">
 	<xs:element name="Standard">
 		<xs:annotation>
 			<xs:documentation>XML-описание профессионального стандарта. Служит для генерации документов по макету Мин. труда. Для лучшего понимания концепции схема требует наличия документа: profstd2010.pdf и макета </xs:documentation>
@@ -69,16 +71,16 @@
 											</xs:annotation>
 											<xs:complexType>
 												<xs:sequence>
-													<xs:element name="name" type="xs:string">
-														<xs:annotation>
-															<xs:documentation>Имя руководителя организации</xs:documentation>
-														</xs:annotation>
-													</xs:element>
-													<xs:element name="organization" type="xs:string">
-														<xs:annotation>
-															<xs:documentation>Название организации</xs:documentation>
-														</xs:annotation>
-													</xs:element>
+												<xs:element name="name" type="xs:string">
+												<xs:annotation>
+												<xs:documentation>Имя руководителя организации</xs:documentation>
+												</xs:annotation>
+												</xs:element>
+												<xs:element name="organization" type="xs:string">
+												<xs:annotation>
+												<xs:documentation>Название организации</xs:documentation>
+												</xs:annotation>
+												</xs:element>
 												</xs:sequence>
 											</xs:complexType>
 										</xs:element>
@@ -88,16 +90,16 @@
 											</xs:annotation>
 											<xs:complexType>
 												<xs:sequence>
-													<xs:element name="organization" type="xs:string">
-														<xs:annotation>
-															<xs:documentation>Название организации</xs:documentation>
-														</xs:annotation>
-													</xs:element>
-													<xs:element name="city" type="xs:string">
-														<xs:annotation>
-															<xs:documentation>Название города</xs:documentation>
-														</xs:annotation>
-													</xs:element>
+												<xs:element name="organization" type="xs:string">
+												<xs:annotation>
+												<xs:documentation>Название организации</xs:documentation>
+												</xs:annotation>
+												</xs:element>
+												<xs:element name="city" type="xs:string">
+												<xs:annotation>
+												<xs:documentation>Название города</xs:documentation>
+												</xs:annotation>
+												</xs:element>
 												</xs:sequence>
 											</xs:complexType>
 										</xs:element>
@@ -125,16 +127,16 @@
 											</xs:annotation>
 											<xs:complexType>
 												<xs:sequence>
-													<xs:element name="level_ORK" type="xs:string">
-														<xs:annotation>
-															<xs:documentation>Уровень по Общей рамке классификации</xs:documentation>
-														</xs:annotation>
-													</xs:element>
-													<xs:element name="level_NRK" type="xs:string">
-														<xs:annotation>
-															<xs:documentation>Уровень по Национальной рамке классификации</xs:documentation>
-														</xs:annotation>
-													</xs:element>
+												<xs:element name="level_ORK" type="xs:string">
+												<xs:annotation>
+												<xs:documentation>Уровень по Общей рамке классификации</xs:documentation>
+												</xs:annotation>
+												</xs:element>
+												<xs:element name="level_NRK" type="xs:string">
+												<xs:annotation>
+												<xs:documentation>Уровень по Национальной рамке классификации</xs:documentation>
+												</xs:annotation>
+												</xs:element>
 												</xs:sequence>
 											</xs:complexType>
 										</xs:element>
@@ -148,7 +150,8 @@
 												<xs:documentation>Название вида трудовой деятельности</xs:documentation>
 											</xs:annotation>
 										</xs:element>
-										<xs:element name="job_title" type="xs:string" maxOccurs="unbounded">
+										<xs:element name="job_title" type="xs:string"
+											maxOccurs="unbounded">
 											<xs:annotation>
 												<xs:documentation>Возможные наименования должностей</xs:documentation>
 											</xs:annotation>
@@ -164,26 +167,30 @@
 											</xs:annotation>
 											<xs:complexType>
 												<xs:sequence>
-													<xs:element name="ksd_job_title" type="xs:string" maxOccurs="unbounded">
-														<xs:annotation>
-															<xs:documentation>Должности по
+												<xs:element name="ksd_job_title" type="xs:string"
+												maxOccurs="unbounded">
+												<xs:annotation>
+												<xs:documentation>Должности по
 КСД, ЕКСД</xs:documentation>
-														</xs:annotation>
-													</xs:element>
-													<xs:element name="etks_code" type="xs:string" maxOccurs="unbounded">
-														<xs:annotation>
-															<xs:documentation>Наименования профессий по ЕТКС</xs:documentation>
-														</xs:annotation>
-													</xs:element>
-													<xs:element name="okz_code" type="xs:int" maxOccurs="unbounded">
-														<xs:annotation>
-															<xs:documentation>Коды занятий по ОКЗ, коды</xs:documentation>
-														</xs:annotation>
-													</xs:element>
+												</xs:annotation>
+												</xs:element>
+												<xs:element name="etks_code" type="xs:string"
+												maxOccurs="unbounded">
+												<xs:annotation>
+												<xs:documentation>Наименования профессий по ЕТКС</xs:documentation>
+												</xs:annotation>
+												</xs:element>
+												<xs:element name="okz_code" type="xs:int"
+												maxOccurs="unbounded">
+												<xs:annotation>
+												<xs:documentation>Коды занятий по ОКЗ, коды</xs:documentation>
+												</xs:annotation>
+												</xs:element>
 												</xs:sequence>
 											</xs:complexType>
 										</xs:element>
-										<xs:element name="unit_for_certificate" type="xs:string" maxOccurs="unbounded">
+										<xs:element name="unit_for_certificate" type="xs:string"
+											maxOccurs="unbounded">
 											<xs:annotation>
 												<xs:documentation>Коды единиц, нужных для получения сертификата</xs:documentation>
 											</xs:annotation>
@@ -194,31 +201,36 @@
 											</xs:annotation>
 											<xs:complexType>
 												<xs:sequence>
-													<xs:element name="possible_workplace" type="xs:string">
-														<xs:annotation>
-															<xs:documentation>Возможные места работы</xs:documentation>
-														</xs:annotation>
-													</xs:element>
-													<xs:element name="activity_specific" type="xs:string" maxOccurs="unbounded">
-														<xs:annotation>
-															<xs:documentation>Список условий деятельности</xs:documentation>
-														</xs:annotation>
-													</xs:element>
-													<xs:element name="education" type="xs:string" maxOccurs="unbounded">
-														<xs:annotation>
-															<xs:documentation>Требования к профессиональному образованию и обучению работника</xs:documentation>
-														</xs:annotation>
-													</xs:element>
-													<xs:element name="experience" type="xs:string" maxOccurs="unbounded">
-														<xs:annotation>
-															<xs:documentation>Требования к практическому опыту работы</xs:documentation>
-														</xs:annotation>
-													</xs:element>
-													<xs:element name="certificates" type="xs:string" maxOccurs="unbounded">
-														<xs:annotation>
-															<xs:documentation>Необходимость сертификатов, подтверждающих квалификацию</xs:documentation>
-														</xs:annotation>
-													</xs:element>
+												<xs:element name="possible_workplace"
+												type="xs:string">
+												<xs:annotation>
+												<xs:documentation>Возможные места работы</xs:documentation>
+												</xs:annotation>
+												</xs:element>
+												<xs:element name="activity_specific"
+												type="xs:string" maxOccurs="unbounded">
+												<xs:annotation>
+												<xs:documentation>Список условий деятельности</xs:documentation>
+												</xs:annotation>
+												</xs:element>
+												<xs:element name="education" type="xs:string"
+												maxOccurs="unbounded">
+												<xs:annotation>
+												<xs:documentation>Требования к профессиональному образованию и обучению работника</xs:documentation>
+												</xs:annotation>
+												</xs:element>
+												<xs:element name="experience" type="xs:string"
+												maxOccurs="unbounded">
+												<xs:annotation>
+												<xs:documentation>Требования к практическому опыту работы</xs:documentation>
+												</xs:annotation>
+												</xs:element>
+												<xs:element name="certificates" type="xs:string"
+												maxOccurs="unbounded">
+												<xs:annotation>
+												<xs:documentation>Необходимость сертификатов, подтверждающих квалификацию</xs:documentation>
+												</xs:annotation>
+												</xs:element>
 												</xs:sequence>
 											</xs:complexType>
 										</xs:element>
@@ -228,10 +240,10 @@
 											</xs:annotation>
 											<xs:complexType>
 												<xs:sequence>
-													<xs:element name="code" type="xs:string">
-														<xs:annotation>
-															<xs:documentation>например А, B, C</xs:documentation>
-															<xs:appinfo>
+												<xs:element name="code" type="xs:string">
+												<xs:annotation>
+												<xs:documentation>например А, B, C</xs:documentation>
+												<xs:appinfo>
 																<altova:exampleValues>
 																	<altova:example value="D"/>
 																	<altova:example value="C"/>
@@ -239,45 +251,66 @@
 																	<altova:example value="A"/>
 																</altova:exampleValues>
 															</xs:appinfo>
-														</xs:annotation>
-													</xs:element>
-													<xs:element name="name" type="xs:string">
-														<xs:annotation>
-															<xs:documentation>Наименование категории активности, уточненной по уровню. Например, для активности 8A, наименованием будет "Отстаивать долгосрочные интересы акционеров (учредителей)."</xs:documentation>
-															<xs:appinfo>
+												</xs:annotation>
+												</xs:element>
+												<xs:element name="name" type="xs:string">
+												<xs:annotation>
+												<xs:documentation>Наименование категории активности, уточненной по уровню. Например, для активности 8A, наименованием будет "Отстаивать долгосрочные интересы акционеров (учредителей)."</xs:documentation>
+												<xs:appinfo>
 																<altova:exampleValues>
 																	<altova:example value="Отстаивать долгосрочные интересы акционеров (учредителей)."/>
 																</altova:exampleValues>
 															</xs:appinfo>
-														</xs:annotation>
-													</xs:element>
-													<xs:element name="standard_unit" maxOccurs="unbounded">
-														<xs:annotation>
-															<xs:documentation>Трудовая функция. Состоит из кода, названия и нескольких разделов описаний</xs:documentation>
-														</xs:annotation>
-														<xs:complexType>
-															<xs:sequence>
-																<xs:element name="code" type="xs:string">
-																	<xs:annotation>
-																		<xs:documentation>код подкатегории единицы. Например для 8А5 это будет 5</xs:documentation>
-																	</xs:annotation>
-																</xs:element>
-																<xs:element name="name" type="xs:string">
-																	<xs:annotation>
-																		<xs:documentation>Название трудовай функции</xs:documentation>
-																	</xs:annotation>
-																</xs:element>
-																<xs:element name="knowledge_unit" type="xs:string" maxOccurs="unbounded">
-																	<xs:annotation>
-																		<xs:documentation>Текст знания, умения, действия или качества</xs:documentation>
-																	</xs:annotation>
-																</xs:element>
-															</xs:sequence>
-														</xs:complexType>
-													</xs:element>
+												</xs:annotation>
+												</xs:element>
+												<xs:element name="standard_unit"
+												maxOccurs="unbounded">
+												<xs:annotation>
+												<xs:documentation>Трудовая функция. Состоит из кода, названия и нескольких разделов описаний</xs:documentation>
+												</xs:annotation>
+												<xs:complexType>
+												<xs:sequence>
+												<xs:element name="code" type="xs:string">
+												<xs:annotation>
+												<xs:documentation>код подкатегории единицы. Например для 8А5 это будет 5</xs:documentation>
+												</xs:annotation>
+												</xs:element>
+												<xs:element name="name" type="xs:string">
+												<xs:annotation>
+												<xs:documentation>Название трудовай функции</xs:documentation>
+												</xs:annotation>
+												</xs:element>
+												<xs:element name="knowledge_unit"
+												maxOccurs="unbounded" minOccurs="0">
+												<xs:annotation>
+												<xs:documentation>Текст знания, умения, действия или качества</xs:documentation>
+												</xs:annotation>
+												<xs:complexType>
+												<xs:simpleContent>
+												<xs:extension base="xs:string">
+												<xs:attribute name="type" type="xs:string">
+												</xs:attribute>
+												</xs:extension>
+												</xs:simpleContent>
+												</xs:complexType>
+												</xs:element>
+												</xs:sequence>
+												</xs:complexType>
+												</xs:element>
 												</xs:sequence>
 											</xs:complexType>
 										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="life_cycle">
+								<xs:annotation>
+									<xs:documentation>Элементы вида "А. Анализ, планирование деятельности"</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="code" type="xs:string"/>
+										<xs:element name="name" type="xs:string"/>
 									</xs:sequence>
 								</xs:complexType>
 							</xs:element>
@@ -307,16 +340,16 @@
 											</xs:annotation>
 											<xs:complexType>
 												<xs:sequence>
-													<xs:element name="name" type="xs:string">
-														<xs:annotation>
-															<xs:documentation>Наименование термина</xs:documentation>
-														</xs:annotation>
-													</xs:element>
-													<xs:element name="definition" type="xs:string">
-														<xs:annotation>
-															<xs:documentation>Определение термина</xs:documentation>
-														</xs:annotation>
-													</xs:element>
+												<xs:element name="name" type="xs:string">
+												<xs:annotation>
+												<xs:documentation>Наименование термина</xs:documentation>
+												</xs:annotation>
+												</xs:element>
+												<xs:element name="definition" type="xs:string">
+												<xs:annotation>
+												<xs:documentation>Определение термина</xs:documentation>
+												</xs:annotation>
+												</xs:element>
 												</xs:sequence>
 											</xs:complexType>
 										</xs:element>
@@ -335,16 +368,16 @@
 											</xs:annotation>
 											<xs:complexType>
 												<xs:sequence>
-													<xs:element name="name" type="xs:string">
-														<xs:annotation>
-															<xs:documentation>Наименование сокращения</xs:documentation>
-														</xs:annotation>
-													</xs:element>
-													<xs:element name="definition" type="xs:string">
-														<xs:annotation>
-															<xs:documentation>Расшифровка сокращения</xs:documentation>
-														</xs:annotation>
-													</xs:element>
+												<xs:element name="name" type="xs:string">
+												<xs:annotation>
+												<xs:documentation>Наименование сокращения</xs:documentation>
+												</xs:annotation>
+												</xs:element>
+												<xs:element name="definition" type="xs:string">
+												<xs:annotation>
+												<xs:documentation>Расшифровка сокращения</xs:documentation>
+												</xs:annotation>
+												</xs:element>
 												</xs:sequence>
 											</xs:complexType>
 										</xs:element>
